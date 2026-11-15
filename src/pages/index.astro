@@ -1,16 +1,233 @@
 ---
+import Project from "../components/project.astro";
+import "../css.css";
+
+const falafelAlt = "a 3d render of a piece of falafel spinning around, orbited by a ring of sesame seeds and other ambiguous falafel wrap ingredients";
+const mythAlt = "a photograph of a photobook, open to a spread with two images. The left image depicts some colorful stairs, and the right image depicts a colorful outdoor swimming pool";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>DRP4ITP</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<header class="vevey">
+			<div>
+				DRP
+			</div>
+			<div>
+				*
+			</div>
+			<div>
+				ITP
+			</div>
+		</header>
+		<main>
+			<Project title="Spiders on the Web" year="2026" tags={["speaking", "website"]}>
+                <p class="half">
+                    In late 2026 I spoke at <a href="https://webdevconf.com/events/2026/" target="_blank" title="Web Dev Conf 2026">Web Dev Conf</a> and <a href="https://londonwebstandards.org/talks/bringing-spiders-to-the-web-with-requestanimationframe/" target="_blank" title="">London Web Standards</a> about building whimsical web animations from scratch. We learned about frame-based animation, faberge eggs, and spring physics.
+                </p>
+                <figure class="half">
+                    <img src="/images/talk.webp" alt="duncan giving a talk at web dev conf in bristol, october 2026" />
+                    <figcaption>Live demo 😬 at WDC.</figcaption>
+                </figure>
+                <p class="half">
+                    The talk culminated in <a href="https://spiders.duncanpetrie.com" target="_blank" title="spiders.duncanpetrie.com">spiders.duncanpetrie.com</a>, a little playground where you can be a spider. The site is multiplayer, so bring your friends! If you get close enough together, you’ll start kissing (this is not a joke).
+                </p>
+                <p class="half">
+                    I also built a <a href="https://chromewebstore.google.com/detail/a-spider-on-the-web/jnlhooedjlgccjkicbbolgbojlaigkle?authuser=0&hl=en" target="_blank" title="a spider on the web - chrome web store">browser extension</a>, which lets you take your spider on the go. It also periodically makes spiders run across your screen. This is a fun addition to the web browsing experience, and does not activate your fight-or-flight instincts.
+                </p>
+                <p class="half">
+                    See <a href="https://wdc.duncanpetrie.com" target="_blank" title="wdc.duncanpetrie.com">wdc.duncanpetrie.com</a> for slides, a recording, and more details about the talk.
+                </p>
+                <br/>
+                <figure class="half">
+                    <img src="/images/arachnophobia.jpg" alt="spiders on the wikipedia page for arachnophobia" />
+                    <figcaption>Spiders crawling all over the Wikipedia page for ‘arachnophobia’.</figcaption>
+                </figure>
+			</Project>
+			<Project title="Planet Falafel" year="2026" tags={["website", "writing"]}>
+                <figure class="hal">
+                    <img src="/images/falafel.png" alt="screenshot of the landing page of falafel.fyi" draggable="false" />
+                </figure>
+				<p class="half">
+					<a href="https://falafel.fyi" target="_blank" title="falafel.fyi">https://falafel.fyi</a> is a microblog about my favorite kind of ball. Every time I order a falafel wrap from a new cart, cafe, or restaurant, I write a little review, and put it there.
+				</p>
+				<p class="half">
+					It also has an <a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">essay about the origins of falafel</a>, in case you’re hungry for history.
+				</p>
+			</Project>
+            <Project title="Pedigree" year="2026" tags={["writing"]}>
+                <p class="half"><em>
+                    Johnny was always a bad husband, but I didn’t know it at first. I’d never hung off someone’s arm like that. Strangers gave me flowers, and I had to wear sunglasses indoors, because the paparazzi flashes gave me headaches.
+                </em></p>
+                <p class="half">
+                    In August, I won a <a href="https://www.quarter--mile.com/1picture1000words/original" title="1 picture 1000 words" target="_blank">short story competition</a> with a story about dog adultery. The prompt was to write exactly 1000 words about this picture:
+                </p>
+                <figure class="half">
+                    <img src="/images/dog-pool.jpg" alt="a huge fawn mastiff sits upright, like a person, on a dark wicker patio sofa, looking out at a turquoise swimming pool" draggable="false" />
+                    <figcaption>
+                        Is a picture truly worth a thousand words? Is <em>this</em> picture worth a thousand words?
+                    </figcaption>
+                </figure>
+                <p class="half">
+                    You can read the full story here: <a href="https://www.quarter--mile.com/1picture1000words/winners/pedigree" target="_blank" title="pedigree - 1 picture 1000 words">https://www.quarter--mile.com/1picture1000words/winners/pedigree</a>.
+                </p>
+            </Project>
+            <Project title="Sketchbooks" year="2026 → ?" tags="drawing">
+                <p class="half">
+                    I have a daily drawing practice. Mostly, I use a fine-liner and draw very small. I’m a perfectionist, and drawing very small makes it easier for me to experiment; if I make a mistake, there’s a lot of space left on the page to try again!
+                </p>
+                <figure>
+                    <div class="image-row">
+                        <img src="/images/d1.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d2.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d3.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d4.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d5.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d6.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d7.JPG" alt="little drawings in a little notebook" />
+                        <img src="/images/d8.JPG" alt="little drawings in a little notebook" />
+                    </div>
+                    <figcaption>Some drawings in a little tiny notebook.</figcaption>
+                </figure>
+                <p class="half">
+                    I also draw on a tablet! It’s not as nice as drawing on paper; I like using it for website assets. See the spring chicken demo for my recent talk (<a href="https://wdc.duncanpetrie.com/playground/spring-chicken/" target="_blank" title="wdc.duncanpetrie.com/playground/spring-chicken">here</a>) and the scroll tracker on my falafel essay (<a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">here</a>) for some examples.
+                </p>
+                <figure class="half">
+                    <img src="/images/ipad.webp" alt="animated drawings done on a tablet" />
+                    <figcaption>A collection of barely-animated drawings done done on a tablet.</figcaption>
+                </figure>
+            </Project>
+            <Project title="To Pigeon-Fill the Sky" year="2025" tags={["photobook", "website"]}>
+                <p class="half">
+                    To Pigeon-Fill the Sky is a photographic storybook about AI, the creative process, and, of course, pigeons.
+                </p>
+                <p>
+                    See more at <a href="https://pigeons.duncanpetrie.com" target="_blank" title="pigeons.duncanpetrie.com">pigeons.duncanpetrie.com</a>.
+                </p>
+            </Project>
+            <Project title="Wikiπdia" year="2025" tags={["website", "wikipedia"]}>
+                <p class="half">
+                    How do you fit one infinity into another? <a href="https://wikipi.duncanpetrie.com/" target="_blank" title="wikipi.duncanpetrie.com">Wikiπdia</a> uses π as an index for Wikipedia articles with numbers in their titles.
+                </p>
+                <figure class="half">
+                    <img src="/images/wikipi.webp" alt="screen recording of wikiπdia, where the digits of π link to wikipedia articles with numbers in their titles" draggable="false" />
+                    <figcaption>
+                        The digits of π link to wikipedia articles with those numbers in their titles.
+                    </figcaption>
+                </figure>
+            </Project>
+            <Project title="Palimpsest" year="2023 → ?" tags={["photobook"]}>
+
+            </Project>
+			<Project title="Lingermyth" year="2022" tags={["photobook"]}>
+				<p class="half">
+                    My final degree project, Lingermyth, is a photobook book of 50 images. Photos from this project were featured in the a-n degree show guide, AOP student awards, EZIO color awards, etc etc etc
+                </p>
+                <p class="half">
+                    This project was inspired by  <em>On Yearning</em>, my undergrad dissertation (see below). Maybe you can tell, but I was also watching a lot of Wes Anderson films while making this.
+                </p>
+                <p class="half">
+                    You can see the full pdf at <a href="https://duncanpetrie.com/myth.pdf" target="_blank" title="duncanpetrie.com/myth.pdf">duncanpetrie.com/myth.pdf</a>.
+                </p>
+			</Project>
+            <Project title="On Yearning" year="2021" tags={["writing"]}>
+                <figure class="half">
+                    <img src="/images/yearn.jpg" alt="photograph of a gull flying across the lonely sky" draggable="false" />
+                </figure>
+                <p class="half">
+                    My dissertation, On Yearning, is about the feeling you get when you look to the horizon and long to see beyond it.
+                </p>
+                <p class="half">
+                    It describes art as a form of worldbuilding, and it’s the foundation of my photographic practice.
+                </p>
+                <p class="half">
+                    The pdf is available here: <a href="https://duncanpetrie.com/yearning.pdf" target="_blank" title="on yearning">duncanpetrie.com/yearning.pdf</a>.
+                </p>
+            </Project>
+            <Project title="A Triumph of the Commons" year="2021" tags={["film", "wikipedia"]}>
+                <p class="half">
+                    The full breadth of humanity, every hope and every sorrow, every song and every sigh, is on <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank" title="commons.wikimedia.org">Wikimedia Commons</a>, an open, public file repository maintained by the Wikimedia Foundation.
+                </p>
+                <p class="half">
+                    In Spring of 2021, during a Covid lockdown, I created this film (<a href="https://www.youtube.com/watch?v=JRXZAaDxGCQ/" target="_blank" title="youtube: a triumph of the commons">watch on youtube</a>) using 144 of those files.
+                </p>
+                <iframe class="half" style="aspect-ratio: 16/9; margin-block-end: 4rem;" src="https://www.youtube-nocookie.com/embed/JRXZAaDxGCQ?si=Y26oNIntLkXSUN8b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </Project>
+		</main>
+        <footer>
+            <p class="half">
+                Find out more on my website, <a href="https://duncanpetrie.com" target="_blank" title="duncanpetrie.com">duncanpetrie.com</a>. Or, have a look at my <a href="https://instagram.com/probablyduncan" target="_blank" title="instagram.com/probablyduncan">instagram</a> or <a href="https://are.na/puncan-detrie" target="_blank" title="are.na/puncan-detrie">arena</a>.
+            </p>
+            <p class="half">
+                I made this website using <a href="https://astro.build" target="_blank" title="astro.build">astro</a> on a rainy afternoon. This page is set in <a href="https://samporritt.com/vevey-positive" target="_blank" title="samporritt.com/vevey-positive">vevey</a> and <a href="https://github.com/namesakefyi/atkinson-hyperlegible-soft" target="_blank" title="github.com/namesakefyi/atkinson-hyperlegible-soft">atkinson hyperlegible soft</a>.
+            </p>
+        </footer>
 	</body>
 </html>
+<style>
+	body {
+		width: min(100vw, 100vh);
+		margin: 0 auto;
+		padding: 0.25em;
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	main {
+		margin-top: 200px;
+	}
+
+    .half {
+        width: 50%;
+    }
+
+	p {
+		text-align: justify;
+	}
+
+    a {
+        color: red;
+        &:visited {
+            color: indianred
+        }
+        &:hover {
+            text-decoration-style: wavy;
+            text-decoration-skip-ink: none;
+        }
+    }
+
+    figure {
+        margin-inline: 0;
+    }
+
+    figcaption {
+        color: alpha(from currentColor / 0.5);
+        font-size: 0.875em;
+        width: 87.5%;
+        text-wrap: balance;
+    }
+
+    footer {
+        margin-block: 200px;
+    }
+
+    .image-row {
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        gap: 1rem;
+        margin-bottom: 0.1rem;
+
+        img {
+            max-width: 40%;
+        }
+    }
+</style>

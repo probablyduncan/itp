@@ -1,0 +1,131 @@
+---
+import { getTagColor } from '../lib/tags';
+
+interface Props {
+    title: string;
+    year: string;
+    tags?: string[] | string;
+    // preview: {
+    //     src: string;
+    //     alt: string;
+    //     ratio: number;
+    // };
+}
+
+const { title, year, tags = [] } = Astro.props;
+const preview = {
+    src: "",
+    alt: "",
+    ratio: 1,
+}
+
+---
+<details name={"project-" + title}>
+    <summary>
+        <div>
+            <h2>{title}</h2>
+            <span class="tags">
+                {(Array.isArray(tags) ? tags : [tags]).map(tag => {
+                    const color = getTagColor(tag);
+                    return <span class="tag" style={`--color: ${color};`}>{tag.toUpperCase()}</span>
+                })}
+            </span>
+            <span set:html={year}></span>
+        </div>
+        <figure>
+            <img src={preview.src} alt={preview.alt} draggable="false" style={`--aspect-ratio: ${preview.ratio}; rotate: ${Math.random() * 12 - 6}deg;`} />
+        </figure>
+    </summary>
+    <slot />
+</details>
+<style>
+    details::before, details:last-of-type::after {
+        content: "";
+        width: 100%;
+        display: block;
+        background-color: black;
+        border-radius: 0.2rem;
+        height: 0.2rem;
+    }
+
+    details:open summary::after {
+        content: "";
+        width: 100%;
+        display: block;
+        background-color: alpha(from black / 0.1);
+        border-radius: 0.2rem;
+        height: 0.2rem;
+    }
+
+    summary {
+        display: block;
+        font-size: 1.618em;
+        font-family: var(--vevey);
+        cursor: pointer;
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            justify-content: space-between;
+            padding-block: 0.1em 0.2em;
+            gap: 1em;
+        }
+
+        h2 {
+            font-size: unset;
+            margin: unset;
+        }
+    }
+
+    summary:is(:hover, :focus-visible) {
+        outline: none;
+        div {
+            color: white;
+            background-color: black;
+            border-radius: 0.125em;
+            margin-inline: -0.125em;
+            padding-inline: 0.125em;
+        }
+    }
+
+    details:not(:hover) figure, details:open figure {
+        display: none;
+    }
+
+    details:open {
+        padding-block-end: 4rem;
+    }
+
+    .tags {
+        display: flex;
+        align-items: center;
+        gap: 0.25em;
+        margin-right: 0.25em;
+    }
+
+    .tag {
+        font-size: 0.75em;
+        color: #fff;
+        background-color: var(--color, "black");
+        border-radius: 1em;
+        padding: 0em .5em 0.1em;
+        margin-top: 0.1em;
+    }
+
+    figure {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        pointer-events: none;
+        user-select: none;
+    }
+
+    img {
+        max-width: min(50vw, var(--aspect-ratio) * 50vh);
+    }
+</style>
