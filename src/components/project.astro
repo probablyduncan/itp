@@ -1,26 +1,37 @@
 ---
 import { getTagColor } from '../lib/tags';
+import fs from "fs";
+import path from "path";
+import sharp from "sharp"
 
 interface Props {
     title: string;
     year: string;
     tags?: string[] | string;
-    // preview: {
-    //     src: string;
-    //     alt: string;
-    //     ratio: number;
-    // };
+    preview?: string;
 }
 
-const { title, year, tags = [] } = Astro.props;
-const preview = {
-    src: "",
-    alt: "",
-    ratio: 1,
-}
+const { title, year, tags = [], preview } = Astro.props;
 
+let previewSrc = "";
+let previewRatio = 1;
+if (preview) {
+    previewSrc = path.join("images", preview);
+    const previewAbsoluteSrc = path.join(process.cwd(), "public", previewSrc);
+    if (fs.existsSync(previewAbsoluteSrc)) {
+        const previewBuffer = fs.readFileSync(previewAbsoluteSrc);
+        const metadata = await sharp(previewBuffer).metadata();
+        previewRatio = metadata.width / metadata.height;
+    }
+    else {
+        previewSrc = "";
+    }
+}
+// previewSrc = "";
+
+const detailName = "project" + title;
 ---
-<details name={"project-" + title}>
+<details name={detailName}>
     <summary>
         <div>
             <h2>{title}</h2>
@@ -32,9 +43,9 @@ const preview = {
             </span>
             <span set:html={year}></span>
         </div>
-        <figure>
-            <img src={preview.src} alt={preview.alt} draggable="false" style={`--aspect-ratio: ${preview.ratio}; rotate: ${Math.random() * 12 - 6}deg;`} />
-        </figure>
+        {!!previewSrc && <figure role="presentation">
+            <img src={previewSrc} alt="" draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg; rotate: 0deg;`} />
+        </figure>}
     </summary>
     <slot />
 </details>
@@ -88,10 +99,6 @@ const preview = {
         }
     }
 
-    details:not(:hover) figure, details:open figure {
-        display: none;
-    }
-
     details:open {
         padding-block-end: 4rem;
     }
@@ -112,10 +119,22 @@ const preview = {
         margin-top: 0.1em;
     }
 
+    summary:not(:hover) figure, details:open figure {
+        display: none;
+    }
+
+    details {
+        position: relative;
+    }
+
+    details:open {
+        z-index: 10;
+        background-color: white;
+    }
+
     figure {
-        position: fixed;
-        inset: 0;
         z-index: -1;
+        margin: 0;
 
         display: flex;
         justify-content: center;
@@ -123,9 +142,12 @@ const preview = {
 
         pointer-events: none;
         user-select: none;
+
+        position: absolute;
+        inset: 0;
     }
 
     img {
-        max-width: min(50vw, var(--aspect-ratio) * 50vh);
+        width: min(50vw * var(--sqrt-ratio, 1), calc(50vh * var(--sqrt-ratio, 1)));
     }
 </style>
