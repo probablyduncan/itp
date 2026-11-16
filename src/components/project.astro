@@ -44,7 +44,7 @@ const detailName = "project" + title;
             <span set:html={year}></span>
         </div>
         {!!previewSrc && <figure role="presentation">
-            <img src={previewSrc} alt="" draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg; rotate: 0deg;`} />
+            <img src={previewSrc} alt="" draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg;`} />
         </figure>}
     </summary>
     <slot />
