@@ -23,7 +23,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     <span>D</span>
                     <span style="--chars: 5.3; --color: green;">uncan</span>
                     <span>P</span>
-                    <span style="--chars: 18; --color: red;">etrie is applying to the</span>
+                    <span style="--chars: 18; --color: blue;">etrie <span style="--color: tomato;">is</span> <span style="--color: cadetblue;">applying</span> <span style="--color: red;">to</span> <span style="--color: orange;">the</span></span>
                 </span>
                 <span>
                     →
@@ -70,7 +70,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     <img src="/images/falafel.png" alt="screenshot of the landing page of falafel.fyi" draggable="false" />
                 </figure>
                 <p class="half">
-                    <a href="https://falafel.fyi" target="_blank" title="falafel.fyi">https://falafel.fyi</a> is a microblog about my favorite kind of ball. Every time I order a falafel wrap from a new cart, cafe, or restaurant, I write a little review, and put it there. It also has an <a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">essay about the origins of falafel</a>, in case you’re hungry for history.
+                    <a href="https://falafel.fyi" target="_blank" title="falafel.fyi">https://falafel.fyi</a> is a microblog about my favorite kind of ball. Every time I order a falafel wrap from a new cart, cafe, or restaurant, I write a little review, and put it there. It also has an <a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">essay</a> about the origins of falafel, in case you’re hungry for history.
                 </p>
                 <p class="half">
                     This project was self-directed. I used an internal api to sync my website with my list of saved falafel shops on Google Maps, researched and wrote all the content, learned Blender to model and animate a piece of falafel, drew various icons/assets with a drawing tablet, used Figma to design the website, and Astro to build it. The goal was to get better at doing these kinds of projects, so I used AI as little as possible, and only as a learning tool.
@@ -90,7 +90,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     </figcaption>
                 </figure>
                 <p class="half">
-                    You can read the full story here: <a href="https://www.quarter--mile.com/1picture1000words/winners/pedigree" target="_blank" title="pedigree - 1 picture 1000 words">https://www.quarter--mile.com/1picture1000words/winners/pedigree</a>.
+                    You can read the full story <a href="https://www.quarter--mile.com/1picture1000words/winners/pedigree" target="_blank" title="pedigree - 1 picture 1000 words">here</a>.
                 </p>
             </Project>
             <Project title="Sketchbooks" year="2026 → ?" tags="doodles" preview="ds.webp">
@@ -198,9 +198,16 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     See the project on <a href="https://github.com/probablyduncan/synesthesim" target="_blank" title="github: synesthesim">github</a>.
                 </p>
             </Project>
-            <Project title="Pizza, Fast!" tags="film" year="2020" preview="">
+            <Project title="Pizza, Fast!" tags="film" year="2020" preview="pizza.gif">
+                <figure class="half">
+                    <img src="/images/pizza.gif" style="width: 100%;" alt="timelapse gif of pizza rising in an oven" draggable="false" />
+                </figure>
                 <p class="half">
-                    In March of 2020, I left university and moved back into my parents’ house. During that first lockdown, I couldn't really go outside. My family did a lot of baking. For a moving image class, I created a timelapse film from almost 2,500 individual photographs. It is best watched with sound on.
+                    In March of 2020, I left university and moved back into my parents’ house. During that first lockdown, I couldn't really go outside. My family did a lot of baking. For a moving image assignment, I created a short timelapse film from almost 2,500 individual photographs, documenting the making of pizza. An artifact of Covid, I guess.
+                </p>
+                <p class="half">
+                    You can watch it on Youtube <a href="https://youtu.be/-sBHX07eIMY/" target="_blank" title="youtube: 
+i made pizza, really fast">here</a>.
                 </p>
             </Project>
         </main>
@@ -209,7 +216,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                 Thank you for your consideration!
             </p>
             <p class="half">
-                I made this website by hand on a rainy afternoon in November. It is a very simple <a href="https://astro.build" target="_blank" title="astro.build">astro</a> project. There is no client-side javascript here, in case you’re reviewing applications on netscape navigator, your smart fridge, or a braille display.
+                I made this website by hand on a rainy afternoon in November. It is a very simple <a href="https://astro.build" target="_blank" title="astro.build">astro</a> project. There is no client-side javascript here (in case you’re reviewing applications on netscape navigator, your smart fridge, or a braille display).
             </p>
             <p class="half">
                 Text on this page is set in <a href="https://samporritt.com/vevey-positive" target="_blank" title="samporritt.com/vevey-positive">vevey</a> and <a href="https://github.com/namesakefyi/atkinson-hyperlegible-soft" target="_blank" title="github.com/namesakefyi/atkinson-hyperlegible-soft">atkinson hyperlegible soft</a>.
@@ -267,7 +274,9 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
             transform-origin: 0%;
             scale: 0 1;
             width: 0;
-            transition: scale 0.2s ease-out, width 0.2s ease-out;
+            transition: scale, width;
+            transition-timing-function: ease-out;
+            transition-duration: calc(0.1s + 0.005s * var(--chars));
         }
 
         h1:is(:hover, :focus-visible) > span > span:nth-child(even) {
@@ -313,13 +322,13 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
     }
 
     a {
-        color: red;
+        color: blue;
+        display: inline-block;
         &:visited {
-            color: indianred
+            color: rebeccapurple
         }
         &:hover {
-            text-decoration-style: wavy;
-            text-decoration-skip-ink: none;
+            scale: -1 1;
         }
     }
 
