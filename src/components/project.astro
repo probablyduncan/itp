@@ -50,7 +50,10 @@ const detailName = "project" + title;
     <slot />
 </details>
 <style>
-    details::before, details:last-of-type::after {
+
+    details::before,
+    details:last-of-type::after,
+    details:open summary::after {
         content: "";
         width: 100%;
         display: block;
@@ -59,13 +62,8 @@ const detailName = "project" + title;
         height: 0.2rem;
     }
 
-    details:open summary::after {
-        content: "";
-        width: 100%;
-        display: block;
+    details:open summary:not(:hover)::after {
         background-color: alpha(from black / 0.1);
-        border-radius: 0.2rem;
-        height: 0.2rem;
     }
 
     summary {
@@ -112,8 +110,8 @@ const detailName = "project" + title;
 
     .tag {
         font-size: 0.75em;
-        color: #fff;
-        background-color: var(--color, "black");
+        color: white;
+        background-color: var(--color, black);
         border-radius: 1em;
         padding: 0em .5em 0.1em;
         margin-top: 0.1em;

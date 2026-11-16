@@ -7,6 +7,9 @@ html {
     text-size-adjust: none;
     font-feature-settings: "ss01";
     font-variant-ligatures: discretionary-ligatures;
+
+    color: black;
+    background-color: white;
 }
 
 body {
