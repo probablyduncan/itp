@@ -1,20 +1,23 @@
 ---
 import Project from "../components/project.astro";
 import "../css.css";
+import { Font } from "astro:assets";
 
 const falafelAlt = "a 3d render of a piece of falafel spinning around, orbited by a ring of sesame seeds and other ambiguous falafel wrap ingredients";
 const mythAlt = "a photograph of a photobook, open to a spread with two images. The left image depicts some colorful stairs, and the right image depicts a colorful outdoor swimming pool";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>DRP4ITP</title>
-	</head>
-	<body>
-		<header>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>DRP4ITP</title>
+        <Font cssVariable="--vevey" preload />
+        <Font cssVariable="--atk" preload />
+    </head>
+    <body>
+        <header>
             <h1 aria-label="Duncan Petrie is applying to the Interactive Telecommunications Program" tabindex="0">
                 <span>
                     <span>D</span>
@@ -34,9 +37,9 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     <span style="--chars: 6; --color: blue;">rogram</span>
                 </span>
             </h1>
-		</header>
-		<main>
-			<Project title="Spiders on the Web" year="2026" tags={["speaking", "website"]} preview="arachnophobia.jpg">
+        </header>
+        <main>
+            <Project title="Spiders on the Web" year="2026" tags={["speaking", "website"]} preview="arachnophobia.jpg">
                 <p class="half">
                     In late 2026 I spoke at <a href="https://webdevconf.com/events/2026/" target="_blank" title="Web Dev Conf 2026">Web Dev Conf</a> and <a href="https://londonwebstandards.org/talks/bringing-spiders-to-the-web-with-requestanimationframe/" target="_blank" title="">London Web Standards</a> about building whimsical web animations from scratch. We learned about frame-based animation, faberge eggs, and spring physics.
                 </p>
@@ -61,19 +64,19 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     <img src="/images/arachnophobia.jpg" alt="spiders on the wikipedia page for arachnophobia" />
                     <figcaption>Spiders crawling all over the Wikipedia page for ‘arachnophobia’.</figcaption>
                 </figure>
-			</Project>
-			<Project title="Planet Falafel" year="2026" tags={["website", "writing"]} preview="planet-falafel.webp">
+            </Project>
+            <Project title="Planet Falafel" year="2026" tags={["microblog", "essay"]} preview="planet-falafel.webp">
                 <figure class="hal">
                     <img src="/images/falafel.png" alt="screenshot of the landing page of falafel.fyi" draggable="false" />
                 </figure>
-				<p class="half">
-					<a href="https://falafel.fyi" target="_blank" title="falafel.fyi">https://falafel.fyi</a> is a microblog about my favorite kind of ball. Every time I order a falafel wrap from a new cart, cafe, or restaurant, I write a little review, and put it there.
-				</p>
-				<p class="half">
-					It also has an <a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">essay about the origins of falafel</a>, in case you’re hungry for history.
-				</p>
-			</Project>
-            <Project title="Pedigree" year="2026" tags="writing" preview="dog-pool.jpg">
+                <p class="half">
+                    <a href="https://falafel.fyi" target="_blank" title="falafel.fyi">https://falafel.fyi</a> is a microblog about my favorite kind of ball. Every time I order a falafel wrap from a new cart, cafe, or restaurant, I write a little review, and put it there. It also has an <a href="https://falafel.fyi/about" target="_blank" title="falafel.fyi/about">essay about the origins of falafel</a>, in case you’re hungry for history.
+                </p>
+                <p class="half">
+                    This project was self-directed. I used an internal api to sync my website with my list of saved falafel shops on Google Maps, researched and wrote all the content, learned Blender to model and animate a piece of falafel, drew various icons/assets with a drawing tablet, used Figma to design the website, and Astro to build it. The goal was to get better at doing these kinds of projects, so I used AI as little as possible, and only as a learning tool.
+                </p>
+            </Project>
+            <Project title="Pedigree" year="2026" tags="story" preview="dog-pool.jpg">
                 <blockquote class="half">
                     Johnny was always a bad husband, but I didn’t know it at first. I’d never hung off someone’s arm like that. Strangers gave me flowers, and I had to wear sunglasses indoors, because the paparazzi flashes gave me headaches.
                 </blockquote>
@@ -90,7 +93,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     You can read the full story here: <a href="https://www.quarter--mile.com/1picture1000words/winners/pedigree" target="_blank" title="pedigree - 1 picture 1000 words">https://www.quarter--mile.com/1picture1000words/winners/pedigree</a>.
                 </p>
             </Project>
-            <Project title="Sketchbooks" year="2026 → ?" tags="drawing" preview="ds.webp">
+            <Project title="Sketchbooks" year="2026 → ?" tags="doodles" preview="ds.webp">
                 <p class="half">
                     I have a daily drawing practice. Mostly, I use a fine-liner and draw in tiny boxes. I’m a perfectionist, and drawing small makes it easier for me to experiment; if I make a mistake, there’s a lot of space to try again!
                 </p>
@@ -135,11 +138,11 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     </figcaption>
                 </figure>
             </Project>
-            <Project title="Palimpsest" year="2023 → ?" tags="photobook" preview="">
+            <Project title="Palimpsest" year="2023 → ?" tags="photography" preview="">
 
             </Project>
-			<Project title="Lingermyth" year="2022" tags="photobook" preview="myth-spread.webp">
-				<p class="half">
+            <Project title="Lingermyth" year="2022" tags="photobook" preview="myth-spread.webp">
+                <p class="half">
                     My final degree project, Lingermyth, is a photobook book of 50 images. Photos from this project were featured in the a-n degree show guide, AOP student awards, EZIO color awards, etc etc etc
                 </p>
                 <p class="half">
@@ -148,8 +151,8 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                 <p class="half">
                     You can see the full pdf at <a href="https://duncanpetrie.com/myth.pdf" target="_blank" title="duncanpetrie.com/myth.pdf">duncanpetrie.com/myth.pdf</a>.
                 </p>
-			</Project>
-            <Project title="On Yearning" year="2021" tags="writing" preview="diss-pages.webp">
+            </Project>
+            <Project title="On Yearning" year="2021" tags="dissertation" preview="diss-pages.webp">
                 <figure class="half">
                     <img src="/images/yearn.jpg" alt="photograph of a gull flying across the lonely sky" draggable="false" />
                 </figure>
@@ -167,21 +170,46 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                 </p>
             </Project>
             <Project title="The Commons" year="2021" tags={["film", "wikipedia"]} preview="wiki.gif">
+                <figure class="half">
+                    <img src="/images/wiki.gif" style="width: 100%;" alt="gif of 24 dutch children trying to fit inside a phone booth" draggable="false" />
+                    <figcaption>
+                        24 dutch children try to fit inside a phone booth. This is just one of the many great things you can find on the Wikimedia Commons.
+                    </figcaption>
+                </figure>
                 <p class="half">
                     The full breadth of humanity, every hope and every sorrow, every song and every sigh, is on <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank" title="commons.wikimedia.org">Wikimedia Commons</a>, an open, public file repository maintained by the Wikimedia Foundation.
                 </p>
                 <p class="half">
-                    In Spring of 2021, during a Covid lockdown, I created this film (<a href="https://www.youtube.com/watch?v=JRXZAaDxGCQ/" target="_blank" title="youtube: a triumph of the commons">watch on youtube</a>) using 144 of those files.
+                    In Spring of 2021, during a Covid lockdown, I created a film about the Commons using 144 of those files. It won first prize for moving image in the <a href="https://www.aopawards.com/student-awards-2021/" target="_blank" title="https://www.aopawards.com/student-awards-2021/">AOP student awards</a>. You can watch it on YouTube <a href="https://www.youtube.com/watch?v=JRXZAaDxGCQ/" target="_blank" title="youtube: a triumph of the commons">here</a>.
                 </p>
-                <iframe class="half" style="aspect-ratio: 16/9; margin-block-end: 4rem;" src="https://www.youtube-nocookie.com/embed/JRXZAaDxGCQ?si=Y26oNIntLkXSUN8b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <iframe class="half" style="aspect-ratio: 16/9; margin-block-end: 4rem;" src="https://www.youtube-nocookie.com/embed/JRXZAaDxGCQ?si=Y26oNIntLkXSUN8b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
             </Project>
-		</main>
+            <Project title="Synesthesim" tags="program" year="2020" preview="syn.gif">
+                <figure class="half">
+                    <img src="/images/syn.gif" style="width: 100%;" alt="gif of 24 dutch children trying to fit inside a phone booth" draggable="false" />
+                    <figcaption>
+                        Here, I’m typing my computer password.
+                    </figcaption>
+                </figure>
+                <p class="half">
+                    I have <a href="https://en.wikipedia.org/wiki/Grapheme–color_synesthesia" target="_blank" title="wikipedia: grapheme-color synesthesia">grapheme-color synesthesia</a>, which means that my brain forms strong associations between colors and letters. During the first summer of Covid, I plotted the colors and <a href="https://en.wikipedia.org/wiki/Synesthesia#Spatial_sequence_synesthesia" target="_blank" title="wikipedia: spatial sequence synesthesia">spacial sequences</a> of my alphabet, and made a little program which listens for key presses and displays bursts of color.
+                </p>
+                <p class="half">
+                    See the project on <a href="https://github.com/probablyduncan/synesthesim" target="_blank" title="github: synesthesim">github</a>.
+                </p>
+            </Project>
+            <Project title="Pizza, Fast!" tags="film" year="2020" preview="">
+                <p class="half">
+                    In March of 2020, I left university and moved back into my parents’ house. During that first lockdown, I couldn't really go outside. My family did a lot of baking. For a moving image class, I created a timelapse film from almost 2,500 individual photographs. It is best watched with sound on.
+                </p>
+            </Project>
+        </main>
         <footer>
             <p class="half">
                 Thank you for your consideration!
             </p>
             <p class="half">
-                I made this website by hand on a rainy afternoon in November. It’s a very simple <a href="https://astro.build" target="_blank" title="astro.build">astro</a> project; my goal was to build a nice website without any client-side javascript, in case you’re reviewing applications on netscape navigator, your smart fridge, or a braille display.
+                I made this website by hand on a rainy afternoon in November. It is a very simple <a href="https://astro.build" target="_blank" title="astro.build">astro</a> project. There is no client-side javascript here, in case you’re reviewing applications on netscape navigator, your smart fridge, or a braille display.
             </p>
             <p class="half">
                 Text on this page is set in <a href="https://samporritt.com/vevey-positive" target="_blank" title="samporritt.com/vevey-positive">vevey</a> and <a href="https://github.com/namesakefyi/atkinson-hyperlegible-soft" target="_blank" title="github.com/namesakefyi/atkinson-hyperlegible-soft">atkinson hyperlegible soft</a>.
@@ -190,17 +218,18 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                 Find me on <a href="https://instagram.com/probablyduncan" target="_blank" title="https://instagram.com/probablyduncan">instagram</a>, <a href="https://are.na/puncan-detrie" target="_blank" title="https://are.na/puncan-detrie">arena</a>, <a href="https://github.com/probablyduncan" target="_blank" title="https://github.com/probablyduncan">github</a>, or <a href="https://www.linkedin.com/in/probablyduncan/" target="_blank" title="https://www.linkedin.com/in/probablyduncan/">linkedin</a>.
             </p>
         </footer>
-	</body>
+    </body>
 </html>
 <style>
-	body {
-		width: min(100vw, 100vh);
-		width: min(100vw, 64rem);
-		margin: 0 auto;
-		padding: 0 0.25em;
-	}
+    body {
+        width: min(100vw, 100vh);
+        width: min(100vw, 64rem);
+        margin: 0 auto;
+        padding: 0 0.25em;
+        font-family: var(--atk);
+    }
 
-	header {
+    header {
         height: 50svh;
         
         h1 {
@@ -246,7 +275,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
             scale: var(--scale) 1;
             width: calc(var(--chars) * var(--scale) * 1ch);
         }
-	}
+    }
 
     .half {
         @media (min-width: 540px) {
@@ -258,7 +287,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
     }
 
     p {
-		text-align: justify;
+        text-align: justify;
     }
 
     blockquote {
@@ -276,12 +305,12 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
         }
     }
 
-	p, figcaption {
+    p, figcaption {
         padding-inline-start: 0.5rem;
         @media (max-width: 721px) {
             padding-inline-end: 0.5rem;
         }
-	}
+    }
 
     a {
         color: red;
