@@ -9,6 +9,7 @@ tagMap.set("essay", "blue");
 tagMap.set("photobook", "red");
 tagMap.set("photography", "red");
 tagMap.set("film", "cadetblue");
+tagMap.set("short film", "cadetblue");
 tagMap.set("wikipedia", "darkgray");
 tagMap.set("speaking", "orange");
 tagMap.set("doodles", "indianred");
