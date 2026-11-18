@@ -10,9 +10,10 @@ interface Props {
     tags?: string[] | string;
     preview?: string;
     star?: true;
+    previewNoBorder?: true;
 }
 
-const { title, year, tags = [], preview, star = false } = Astro.props;
+const { title, year, tags = [], preview, star = false, previewNoBorder = false } = Astro.props;
 
 let previewSrc = "";
 let previewRatio = 1;
@@ -28,7 +29,7 @@ if (preview) {
         previewSrc = "";
     }
 }
-previewSrc = "";
+// previewSrc = "";
 
 const detailName = "project" + title;
 ---
@@ -45,7 +46,7 @@ const detailName = "project" + title;
             <span set:html={year}></span>
         </div>
         {!!previewSrc && <figure role="presentation">
-            <img src={previewSrc} alt="" draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg;`} />
+            <img src={previewSrc} alt="" class:list={{ "bordered": !previewNoBorder }} draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg;`} />
         </figure>}
     </summary>
     <slot />
@@ -129,15 +130,15 @@ const detailName = "project" + title;
 
     details {
         position: relative;
-    }
-
-    details:open {
-        z-index: 10;
         background-color: white;
+    }
+    
+    details:open {
+        z-index: 20;
     }
 
     figure {
-        z-index: -1;
+        z-index: 10;
         margin: 0;
 
         display: flex;
@@ -152,6 +153,9 @@ const detailName = "project" + title;
     }
 
     img {
-        width: min(50vw * var(--sqrt-ratio, 1), calc(50vh * var(--sqrt-ratio, 1)));
+        width: calc(30% * var(--sqrt-ratio, 1));
+    }
+    img.bordered {
+        border: 2px solid black;
     }
 </style>
