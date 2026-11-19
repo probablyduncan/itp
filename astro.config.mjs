@@ -10,6 +10,7 @@ export default defineConfig({
             provider: fontProviders.local(),
             cssVariable: "--vevey",
             name: "Vevey",
+            fallbacks: ["serif"],
             options: {
                 variants: [{
                     src: ['./src/fonts/vevey.otf'],
@@ -22,6 +23,7 @@ export default defineConfig({
             provider: fontProviders.local(),
             cssVariable: "--atk",
             name: "Atkinson Hyperlegible Soft",
+            fallbacks: ["serif"],
             options: {
                 variants: [
                     {
@@ -37,5 +39,5 @@ export default defineConfig({
                 ],
             },
         },
-    ]
+    ],
 });
