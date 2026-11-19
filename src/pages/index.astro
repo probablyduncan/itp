@@ -122,7 +122,7 @@ const mythAlt = "a photograph of a photobook, open to a spread with two images. 
                     <figcaption>A collection of barely-animated drawings done done on a tablet.</figcaption>
                 </figure>
             </Project>
-            <Project title="Pigeon-Fill the Sky" star year="2024-5" tags={["photobook", "website"]} preview="pigeon-glitch.webp">
+            <Project title="Pigeon-Fill the Sky" star year="2024-25" tags={["photobook", "website"]} preview="pigeon-glitch.webp">
                 <figure class="half">
                     <img src="/images/flip-pigeon-2.webp" alt="a looping gif of somebody flipping through the pigeon-fill the sky (the book)" />
                 </figure>
@@ -228,7 +228,7 @@ Ziregstan, Franchock, Geura, Licky Sip, Sadmath, Shint, Elgol, Gucktor, Staw, th
                     </figcaption>
                 </figure>
             </Project>
-            <Project title="Lingermyth" year="2021-2" tags="photobook" preview="flip-myth-3.webp">
+            <Project title="Lingermyth" year="2021-22" tags="photobook" preview="flip-myth-3.webp">
                 <figure class="half">
                     <img src="/images/myth-covers.webp" alt="photograph of two copies of the same book, laying next to each other. one is showing the front cover, one is showing the back cover" />
                     <figcaption>The front and back covers of <em>Lingermyth</em>.</figcaption>
@@ -342,7 +342,7 @@ i made pizza, really fast">here</a>.
             font-family: var(--vevey);
             font-size: 1.618em;
             grid-template-columns: repeat(3, auto);
-            padding-bottom: 0.25em;
+            padding-bottom: 0.4em;
 
             margin: 0;
             position: sticky;
@@ -377,10 +377,12 @@ i made pizza, really fast">here</a>.
             transition-duration: calc(0.1s + 0.005s * var(--chars));
         }
 
-        h1:is(:hover, :focus-visible) > span > span:nth-child(even) {
-            --scale: 0.618;
-            scale: var(--scale) 1;
-            width: calc(var(--chars) * var(--scale) * 1ch);
+        @media (hover: hover) {
+            h1:is(:hover, :focus-visible) > span > span:nth-child(even) {
+                --scale: 0.618;
+                scale: var(--scale) 1;
+                width: calc(var(--chars) * var(--scale) * 1ch);
+            }
         }
     }
 

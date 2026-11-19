@@ -1,8 +1,8 @@
 ---
-import { getTagColor } from '../lib/tags';
+import { getTagColor } from "../lib/tags";
 import fs from "fs";
 import path from "path";
-import sharp from "sharp"
+import sharp from "sharp";
 
 interface Props {
     title: string;
@@ -13,7 +13,14 @@ interface Props {
     previewNoBorder?: true;
 }
 
-const { title, year, tags = [], preview, star = false, previewNoBorder = false } = Astro.props;
+const {
+    title,
+    year,
+    tags = [],
+    preview,
+    star = false,
+    previewNoBorder = false,
+} = Astro.props;
 
 let previewSrc = "";
 let previewRatio = 1;
@@ -24,36 +31,48 @@ if (preview) {
         const previewBuffer = fs.readFileSync(previewAbsoluteSrc);
         const metadata = await sharp(previewBuffer).metadata();
         previewRatio = metadata.width / metadata.height;
-    }
-    else {
+    } else {
         previewSrc = "";
     }
 }
 
-const previewRotation = (Math.random() * 2 + 2) * Math.sign(Math.random() - 0.5);
+const previewRotation =
+    (Math.random() * 2 + 2) * Math.sign(Math.random() - 0.5);
 
 const detailName = "project" + title;
 ---
+
 <details name={detailName}>
     <summary>
         <div class="summary-wrapper">
             <h2 class:list={{ star }}>{title}</h2>
             <div class="tags">
-                {(Array.isArray(tags) ? tags : [tags]).map(tag => {
+                {(Array.isArray(tags) ? tags : [tags]).map((tag) => {
                     const color = getTagColor(tag);
-                    return <span class="tag" style={`--color: ${color};`}>{tag.toUpperCase()}</span>
+                    return (
+                        <span class="tag" style={`--color: ${color};`}>
+                            {tag.toUpperCase()}
+                        </span>
+                    );
                 })}
             </div>
-            <div class="year" set:html={year}></div>
+            <div class="year" set:html={year} />
         </div>
-        {!!previewSrc && <figure>
-            <img src={previewSrc} alt="" class:list={{ "bordered": !previewNoBorder }} draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${previewRotation}deg;`} />
-        </figure>}
+        {!!previewSrc && (
+            <figure>
+                <img
+                    src={previewSrc}
+                    alt=""
+                    class:list={{ bordered: !previewNoBorder }}
+                    draggable="false"
+                    style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${previewRotation}deg;`}
+                />
+            </figure>
+        )}
     </summary>
     <slot />
 </details>
 <style>
-
     details::before,
     details:last-of-type::after,
     details:open summary::after {
@@ -127,7 +146,7 @@ const detailName = "project" + title;
         color: white;
         background-color: var(--color, black);
         border-radius: 1em;
-        padding: 0em .5em 0.1em;
+        padding: 0em 0.5em 0.1em;
         margin-top: 0.1em;
         margin-right: 0.25em;
     }
@@ -175,5 +194,32 @@ const detailName = "project" + title;
     img.bordered {
         border: 0.2rem solid black;
         box-shadow: 0 0 2rem alpha(from black / 0.1);
+    }
+
+    ::-ms-details-marker,
+    ::-moz-details-marker,
+    ::-webkit-details-marker,
+    ::details-marker,
+    ::-ms-marker,
+    ::-moz-marker,
+    ::-webkit-marker,
+    ::marker,
+    summary::-ms-details-marker,
+    summary::-moz-details-marker,
+    summary::-webkit-details-marker,
+    summary::details-marker,
+    summary::-ms-marker,
+    summary::-moz-marker,
+    summary::-webkit-marker,
+    summary::marker,
+    details summary::-ms-details-marker,
+    details summary::-moz-details-marker,
+    details summary::-webkit-details-marker,
+    details summary::details-marker,
+    details summary::-ms-marker,
+    details summary::-moz-marker,
+    details summary::-webkit-marker,
+    details summary::marker {
+        display: none;
     }
 </style>
