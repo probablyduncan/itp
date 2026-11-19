@@ -29,7 +29,8 @@ if (preview) {
         previewSrc = "";
     }
 }
-// previewSrc = "";
+
+const previewRotation = (Math.random() * 2 + 2) * Math.sign(Math.random() - 0.5);
 
 const detailName = "project" + title;
 ---
@@ -45,8 +46,8 @@ const detailName = "project" + title;
             </span>
             <span set:html={year}></span>
         </div>
-        {!!previewSrc && <figure role="presentation">
-            <img src={previewSrc} alt="" class:list={{ "bordered": !previewNoBorder }} draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${Math.random() * 12 - 6}deg;`} />
+        {!!previewSrc && <figure>
+            <img src={previewSrc} alt="" class:list={{ "bordered": !previewNoBorder }} draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${previewRotation}deg;`} />
         </figure>}
     </summary>
     <slot />
@@ -124,20 +125,18 @@ const detailName = "project" + title;
         margin-top: 0.1em;
     }
 
-    summary:not(:hover) figure, details:open figure {
-        display: none;
-    }
-
     details {
         position: relative;
         background-color: white;
     }
-    
+
     details:open {
         z-index: 20;
     }
 
     figure {
+        opacity: 0;
+        visibility: hidden;
         z-index: 10;
         margin: 0;
 
@@ -147,15 +146,27 @@ const detailName = "project" + title;
 
         pointer-events: none;
         user-select: none;
+        -webkit-user-select: none;
 
         position: absolute;
         inset: 0;
     }
 
-    img {
-        width: calc(30% * var(--sqrt-ratio, 1));
+    @media (hover: hover) {
+        details:not([open]) summary:hover figure {
+            opacity: 1;
+            visibility: visible;
+        }
     }
+
+    img {
+        width: calc(27% * var(--sqrt-ratio, 1));
+        image-rendering: optimizeQuality;
+        border-radius: 0.2rem;
+    }
+
     img.bordered {
-        border: 2px solid black;
+        border: 0.2rem solid black;
+        box-shadow: 0 0 2rem alpha(from black / 0.1);
     }
 </style>
