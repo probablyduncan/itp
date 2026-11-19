@@ -36,15 +36,15 @@ const detailName = "project" + title;
 ---
 <details name={detailName}>
     <summary>
-        <div>
+        <div class="summary-wrapper">
             <h2 class:list={{ star }}>{title}</h2>
-            <span class="tags">
+            <div class="tags">
                 {(Array.isArray(tags) ? tags : [tags]).map(tag => {
                     const color = getTagColor(tag);
                     return <span class="tag" style={`--color: ${color};`}>{tag.toUpperCase()}</span>
                 })}
-            </span>
-            <span set:html={year}></span>
+            </div>
+            <div class="year" set:html={year}></div>
         </div>
         {!!previewSrc && <figure>
             <img src={previewSrc} alt="" class:list={{ "bordered": !previewNoBorder }} draggable="false" style={`--aspect-ratio: ${previewRatio}; --sqrt-ratio: ${Math.sqrt(previewRatio)}; rotate: ${previewRotation}deg;`} />
@@ -75,12 +75,18 @@ const detailName = "project" + title;
         font-family: var(--vevey);
         cursor: pointer;
 
-        div {
+        .summary-wrapper {
             display: grid;
             grid-template-columns: 1fr auto auto;
             justify-content: space-between;
+            align-items: center;
             padding-block: 0.1em 0.2em;
-            gap: 1em;
+            column-gap: 1em;
+
+            @media (max-width: 699px) {
+                display: flex;
+                flex-wrap: wrap;
+            }
         }
 
         h2 {
@@ -95,8 +101,9 @@ const detailName = "project" + title;
     }
 
     summary:is(:hover, :focus-visible) {
+        outline-color: transparent;
         outline: none;
-        div {
+        .summary-wrapper {
             color: white;
             background-color: black;
             border-radius: 0.125em;
@@ -112,8 +119,7 @@ const detailName = "project" + title;
     .tags {
         display: flex;
         align-items: center;
-        gap: 0.25em;
-        margin-right: 0.25em;
+        flex-wrap: wrap;
     }
 
     .tag {
@@ -123,6 +129,7 @@ const detailName = "project" + title;
         border-radius: 1em;
         padding: 0em .5em 0.1em;
         margin-top: 0.1em;
+        margin-right: 0.25em;
     }
 
     details {
